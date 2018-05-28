@@ -1,0 +1,19 @@
+<div class="container">
+  
+  <!-- Complete this markup for showing error upon unsuccessful login. -->
+  <p *ngIf="invalid" class="error">Login credentials were incorrect!</p>
+
+  <!-- Complete this markup for showing the status bar correctly, depending on whether or not the user is authenticated. -->
+  <div class="status">
+    <span>User ID: {{user.name}}</span>
+    <button (click)="testApi()">Test API</button>
+    <button (click)="logout()">Logout</button>
+  </div>
+
+  <!-- Add markup for showing the login form if the user is not authenticated. -->
+  <form *ngIf="!user.name" class="form-group">
+    <input type="text" class="form-control" #username>
+    <input type="password" class="form-control" #password>
+    <button class="btn btn-primary" (click)="login(username.value, password.value)">Login</button>
+  </form>
+</div>
